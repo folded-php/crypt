@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+
+use function Folded\getEncryptionKey;
+use Folded\Crypt;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+$vendorPath = dirname(__DIR__, 4) . '/vendor/autoload.php';
+
+$localPath = dirname(__DIR__) . '/vendor/autoload.php';
+
+if (file_exists($vendorPath)) {
+    require $vendorPath;
+} else {
+    require $localPath;
+}
+
+(new Application('Crypt', 'v0.1.0'))
+    ->register('generate')
+    ->setDescription("Generates data for a given element")
+    ->addArgument('element', InputOption::VALUE_REQUIRED, 'The element to generate')
+    ->addOption('cipher', 'c', InputOption::VALUE_OPTIONAL, 'The cipher to use', Crypt::DEFAULT_CIPHER)
+    ->setCode(function (InputInterface $input, OutputInterface $output) {
+        $element = $input->getArgument("element");
+        $key = "";
+
+        switch ($element) {
+            case "key":
+                $cipher = $input->getOption('cipher');
+
+                if (!empty($cipher)) {
+                    $key = getEncryptionKey($cipher);
+                } else {
+                    $key = getEncryptionKey();
+                }
+
+                return $output->writeln("<info>$key</info>");
+            default:
+                return $output->writeln("<error>wrong argument (usage: crypt generate key)</error>");
+        }
+    })
+    ->getApplication()
+    ->run();
