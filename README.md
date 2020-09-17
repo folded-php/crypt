@@ -81,7 +81,7 @@ You can add a parameter to control the type of cipher you want (currently suppor
 Before calling the library, add this setup code as early as possible:
 
 ```php
-use Folded\setEncryptionKey;
+use function Folded\setEncryptionKey;
 
 setEncryptionKey("xIYrZSsCV6hx9x/Q4bka1PejU+aSaMerJQFSYr3QnTE=");
 ```
