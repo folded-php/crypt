@@ -64,14 +64,14 @@ vendor/bin/crypt generate key
 
 You can get more information on the available option by running `vendor/bin/crypt generate --help`.
 
-Another way is to call the function `Folded\generateEncryptionKey()` from a script:
+Another way is to call the function `Folded\getEncryptionKey()` from a script:
 
 ```php
-use Folded\generateEncryptionKey;
+use function Folded\getEncryptionKey;
 
 require __DIR__ . "/vendor/autoload.php";
 
-echo generateEncryptionKey();
+echo getEncryptionKey();
 ```
 
 You can add a parameter to control the type of cipher you want (currently supported: AES-128-CBC and AES-256-CBC).
