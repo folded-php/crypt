@@ -2,6 +2,8 @@
 
 Easily encrypt and decrypt strings for your web app.
 
+[![Build Status](https://travis-ci.com/folded-php/crypt.svg?branch=master)](https://travis-ci.com/folded-php/crypt) [![Maintainability](https://api.codeclimate.com/v1/badges/8e59f7e6108adc65ca6b/maintainability)](https://codeclimate.com/github/folded-php/crypt/maintainability) [![TODOs](https://img.shields.io/endpoint?url=https://api.tickgit.com/badge?repo=github.com/folded-php/crypt)](https://www.tickgit.com/browse?repo=github.com/folded-php/crypt)
+
 ## Summary
 
 - [About](#about)
