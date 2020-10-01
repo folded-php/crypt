@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Folded;
 
-if (!function_exists("getEncryptionKey")) {
+if (!function_exists("Folded\getEncryptionKey")) {
     /**
      * Get a random secure key to be used to encrypt strings with this library.
      *

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Folded;
 
-if (!function_exists("getEncryptedString")) {
+if (!function_exists("Folded\getEncryptedString")) {
     /**
      * Encrypts a strings.
      *

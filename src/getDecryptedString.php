@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Folded;
 
-if (!function_exists("getDecryptedString")) {
+if (!function_exists("Folded\getDecryptedString")) {
     /**
      * Get the decrypted string from an encrypted string.
      *
