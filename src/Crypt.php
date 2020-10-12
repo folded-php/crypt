@@ -13,7 +13,7 @@ use InvalidArgumentException;
  *
  * @since 0.1.0
  */
-class Crypt
+final class Crypt
 {
     /**
      * @since 0.1.0
