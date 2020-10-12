@@ -65,3 +65,10 @@ it("should throw an exception message if the cipher is not correct", function ()
 
     Crypt::setKey("foo", "bar");
 });
+
+it("should throw an exception if the key could not be decoded from base64", function() {
+    $this->expectException(Exception::class);
+    $this->expectExceptionMessage("could not base64 decode key");
+
+    Crypt::setKey("$^\^'#ù");
+});

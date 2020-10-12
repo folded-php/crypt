@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Folded;
 
+use InvalidArgumentException;
+
 if (!function_exists("Folded\setEncryptionKey")) {
     /**
      * Set the key that is used as a salt to improve the security of the encrypted strings.
