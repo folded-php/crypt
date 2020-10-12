@@ -129,6 +129,7 @@ final class Crypt
      * @throws InvalidArgumentException If the cipher is incorrect.
      * @throws InvalidArgumentException If the cipher is empty.
      * @throws InvalidArgumentException If the key is empty.
+     * @throws Exception                If the key could not be decoded from base64.
      *
      * @since 0.1.0
      *
@@ -147,7 +148,13 @@ final class Crypt
 
         self::checkCipher($cipher);
 
-        self::$key = base64_decode($key, true);
+        $key = base64_decode($key, true);
+
+        if ($key === false) {
+            throw new Exception("could not base64 decode key");
+        }
+
+        self::$key = $key;
         self::$cipher = $cipher;
     }
 
